@@ -4,6 +4,7 @@ type ScrollableBoxProps = {
   hasSort?: boolean
   count?: number | null
   size: "wide" | "square" | "tall"
+  children?: React.ReactNode
 }
 
 function BoxHeader({
@@ -25,7 +26,7 @@ function BoxHeader({
   )
 }
 
-export default function ScrollableBox(props: ScrollableBoxProps, children: React.ReactNode) {
+export default function ScrollableBox(props: ScrollableBoxProps) {
   const gridSize = {
     wide: "col-span-2",
     tall: "row-span-2",
@@ -34,9 +35,11 @@ export default function ScrollableBox(props: ScrollableBoxProps, children: React
 
   return (
     <>
-      <div className={gridSize + " bg-slate-300 overflow-hidden overflow-y-scroll p-4"}>
+      <div className={`bg-slate-300 p-4 ${gridSize} overflow-hidden`}>
         <BoxHeader {...props} />
-        {children}
+        <div className="h-full overflow-hidden overflow-y-scroll flex flex-col gap-2 pb-8">
+          {props.children}
+        </div>
       </div>
     </>
   )

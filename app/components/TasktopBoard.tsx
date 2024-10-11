@@ -1,4 +1,5 @@
 import ScrollableBox from "./ScrollableBox"
+import TodoCard from "./TodoCard"
 
 function InfoBoard() {
   return (
@@ -11,13 +12,11 @@ function InfoBoard() {
 function Todo({ title }: { title: string }) {
   return (
     <>
-      <ScrollableBox
-        title={title}
-        size="square"
-        hasButton={true}
-        hasSort={true}
-        count={0}
-      ></ScrollableBox>
+      <ScrollableBox title={title} size="square" hasButton={true} hasSort={true} count={0}>
+        <TodoCard title="hello" priority="high" size="large" />
+        <TodoCard title="hello" priority="medium" size="medium" />
+        <TodoCard title="hello" priority="low" size="small" />
+      </ScrollableBox>
     </>
   )
 }
