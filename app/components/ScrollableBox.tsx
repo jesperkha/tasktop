@@ -15,9 +15,9 @@ function BoxHeader({
 }: ScrollableBoxProps) {
   return (
     <>
-      <div className="mt-2 mb-2 bg-red-50 flex gap-3 items-center w-full">
-        <p>{title}</p>
-        <p>{count !== null ? count : ""}</p>
+      <div className="mt-2 mb-2 flex gap-3 items-center w-full">
+        <p className="text-xl font-bold">{title}</p>
+        <p className="text-xl font-bold text-gray-400">{count !== null ? count : ""}</p>
         <div className="flex-grow"></div>
         {hasSort ? <p>Sort</p> : ""}
         {hasButton ? <p>Add+</p> : ""}
