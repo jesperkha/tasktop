@@ -1,7 +1,9 @@
+import TasktopBoard from "./components/TasktopBoard"
+
 export default function Home() {
   return (
     <>
-      <p>Ready, set, go!</p>
+      <TasktopBoard />
     </>
   )
 }
