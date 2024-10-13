@@ -1,3 +1,5 @@
+import Button from "./Button"
+
 type ScrollableBoxProps = {
   title: string
   hasButton?: boolean
@@ -15,12 +17,12 @@ function BoxHeader({
 }: ScrollableBoxProps) {
   return (
     <>
-      <div className="mt-2 mb-2 flex gap-3 items-center w-full">
-        <p className="text-xl font-bold">{title}</p>
-        <p className="text-xl font-bold text-gray-400">{count !== null ? count : ""}</p>
+      <div className="flex gap-2 items-center w-full">
+        <p className="text-2xl font-bold">{title}</p>
+        <p className="text-2xl font-bold text-gray-400">{count !== null ? count : ""}</p>
         <div className="flex-grow"></div>
-        {hasSort ? <p>Sort</p> : ""}
-        {hasButton ? <p>Add+</p> : ""}
+        {hasSort ? <p className="rounded-full text-sm p-1 pl-4 pr-4 border">Sort ⇄</p> : ""}
+        {hasButton ? <Button label="New" /> : ""}
       </div>
     </>
   )
@@ -35,9 +37,11 @@ export default function ScrollableBox(props: ScrollableBoxProps) {
 
   return (
     <>
-      <div className={`bg-slate-300 p-4 ${gridSize} overflow-hidden`}>
+      <div
+        className={`bg-white border shadow rounded p-4 flex flex-wrap gap-2 ${gridSize} overflow-hidden`}
+      >
         <BoxHeader {...props} />
-        <div className="h-full overflow-hidden overflow-y-scroll flex flex-col gap-2 pb-8">
+        <div className="h-full w-full overflow-hidden overflow-y-scroll flex flex-col gap-2 pb-8">
           {props.children}
         </div>
       </div>

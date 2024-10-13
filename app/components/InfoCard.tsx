@@ -8,7 +8,7 @@ export default function InfoCard({ content }: { content: string }) {
 
   return (
     <>
-      <div className={`p-3 ${cols} rounded bg-slate-400`}>
+      <div className={`p-3 ${cols} rounded bg-slate-50 shadow font-light`}>
         <p>{content}</p>
       </div>
     </>

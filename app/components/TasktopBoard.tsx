@@ -64,13 +64,7 @@ function InProgress({ project }: { project: Project }) {
 
   return (
     <>
-      <ScrollableBox
-        title="In Progress"
-        size="tall"
-        hasButton={true}
-        hasSort={true}
-        count={inProgress.length}
-      >
+      <ScrollableBox title="In Progress" size="tall" hasSort={true} count={inProgress.length}>
         {inProgress.map((item, index) => (
           <ProgressCard {...item} key={index} />
         ))}
